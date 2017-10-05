@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RestaurantHubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RestaurantHub.dbo.cc_encryption' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="cc_encryption">
+    <Key>
+      <PropertyRef Name="credit_card_id" />
+      <PropertyRef Name="encryption_key" />
+    </Key>
+    <Property Name="credit_card_id" Type="int" Nullable="false" />
+    <Property Name="encryption_key" Type="varchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RestaurantHub.dbo.customer_addresses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="customer_addresses">
+    <Key>
+      <PropertyRef Name="address_id" />
+      <PropertyRef Name="customer_id" />
+      <PropertyRef Name="street_address" />
+      <PropertyRef Name="city" />
+      <PropertyRef Name="state" />
+      <PropertyRef Name="zip_code" />
+    </Key>
+    <Property Name="address_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_id" Type="int" Nullable="false" />
+    <Property Name="street_address" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="city" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="state" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="zip_code" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RestaurantHub.dbo.customer_credit_card' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="customer_credit_card">
+    <Key>
+      <PropertyRef Name="credit_card_id" />
+      <PropertyRef Name="customer_id" />
+      <PropertyRef Name="billing_address_id" />
+      <PropertyRef Name="cc_type" />
+      <PropertyRef Name="cc_number" />
+      <PropertyRef Name="cc_expiration" />
+      <PropertyRef Name="cvv_number" />
+    </Key>
+    <Property Name="credit_card_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_id" Type="int" Nullable="false" />
+    <Property Name="billing_address_id" Type="int" Nullable="false" />
+    <Property Name="cc_type" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="cc_number" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="cc_expiration" Type="date" Nullable="false" />
+    <Property Name="cvv_number" Type="varchar" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RestaurantHub.dbo.customers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="customers">
+    <Key>
+      <PropertyRef Name="customer_id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="email" />
+      <PropertyRef Name="password" />
+    </Key>
+    <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="16" />
+    <Property Name="password" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="account_creation_date" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RestaurantHub.dbo.restaurant_branch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="restaurant_branch">
+    <Key>
+      <PropertyRef Name="restaurant_branch_id" />
+      <PropertyRef Name="restaurant_name" />
+      <PropertyRef Name="street_address" />
+      <PropertyRef Name="city" />
+      <PropertyRef Name="state" />
+      <PropertyRef Name="zip_code" />
+      <PropertyRef Name="phone1" />
+      <PropertyRef Name="phone2" />
+      <PropertyRef Name="branch_manager_name" />
+      <PropertyRef Name="branch_manager_email" />
+      <PropertyRef Name="password" />
+      <PropertyRef Name="public_visibility_status" />
+      <PropertyRef Name="admin_approval_status" />
+    </Key>
+    <Property Name="restaurant_branch_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="restaurant_name" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="street_address" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="city" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="state" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="zip_code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="latitude" Type="decimal" Precision="9" Scale="7" />
+    <Property Name="longitude" Type="decimal" Precision="10" Scale="7" />
+    <Property Name="phone1" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="phone2" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="branch_manager_name" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="branch_manager_email" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="date_created" Type="datetime" />
+    <Property Name="public_visibility_status" Type="bit" Nullable="false" />
+    <Property Name="admin_approval_status" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RestaurantHub.dbo.restaurant_menu_items' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="restaurant_menu_items">
+    <Key>
+      <PropertyRef Name="menu_item_id" />
+      <PropertyRef Name="restaurant_branch_id" />
+      <PropertyRef Name="menu_item_name" />
+      <PropertyRef Name="menu_item_price" />
+      <PropertyRef Name="admin_approval_status" />
+    </Key>
+    <Property Name="menu_item_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="restaurant_branch_id" Type="int" Nullable="false" />
+    <Property Name="menu_item_name" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="menu_item_description" Type="varchar" MaxLength="255" />
+    <Property Name="menu_item_photo" Type="varchar" MaxLength="255" />
+    <Property Name="menu_item_price" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="admin_approval_status" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RestaurantHub.dbo.restaurant_order_items' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="restaurant_order_items">
+    <Key>
+      <PropertyRef Name="order_item_id" />
+      <PropertyRef Name="order_id" />
+      <PropertyRef Name="menu_item_id" />
+      <PropertyRef Name="menu_item_quantity" />
+      <PropertyRef Name="menu_item_final_price" />
+    </Key>
+    <Property Name="order_item_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="order_id" Type="int" Nullable="false" />
+    <Property Name="menu_item_id" Type="int" Nullable="false" />
+    <Property Name="menu_item_quantity" Type="int" Nullable="false" />
+    <Property Name="menu_item_final_price" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RestaurantHub.dbo.restaurant_orders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="restaurant_orders">
+    <Key>
+      <PropertyRef Name="order_id" />
+      <PropertyRef Name="customer_id" />
+      <PropertyRef Name="restaurant_branch_id" />
+      <PropertyRef Name="order_date_time" />
+      <PropertyRef Name="pickup_date_time" />
+      <PropertyRef Name="order_status" />
+      <PropertyRef Name="subtotal" />
+      <PropertyRef Name="tax" />
+      <PropertyRef Name="discount" />
+      <PropertyRef Name="total_charged" />
+    </Key>
+    <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_id" Type="int" Nullable="false" />
+    <Property Name="restaurant_branch_id" Type="int" Nullable="false" />
+    <Property Name="order_date_time" Type="datetime" Nullable="false" />
+    <Property Name="pickup_date_time" Type="datetime" Nullable="false" />
+    <Property Name="order_status" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="subtotal" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="tax" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="discount" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="total_charged" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RestaurantHub.dbo.system_administrator' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="system_administrator">
+    <Key>
+      <PropertyRef Name="email" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="password" />
+    </Key>
+    <Property Name="email" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RestaurantHub.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="create_date" Type="datetime" Nullable="false" />
+    <Property Name="modify_date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="RestaurantHubModelStoreContainer">
+    <EntitySet Name="cc_encryption" EntityType="Self.cc_encryption" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [cc_encryption].[credit_card_id] AS [credit_card_id], 
+    [cc_encryption].[encryption_key] AS [encryption_key]
+    FROM [dbo].[cc_encryption] AS [cc_encryption]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="customer_addresses" EntityType="Self.customer_addresses" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [customer_addresses].[address_id] AS [address_id], 
+    [customer_addresses].[customer_id] AS [customer_id], 
+    [customer_addresses].[street_address] AS [street_address], 
+    [customer_addresses].[city] AS [city], 
+    [customer_addresses].[state] AS [state], 
+    [customer_addresses].[zip_code] AS [zip_code]
+    FROM [dbo].[customer_addresses] AS [customer_addresses]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="customer_credit_card" EntityType="Self.customer_credit_card" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [customer_credit_card].[credit_card_id] AS [credit_card_id], 
+    [customer_credit_card].[customer_id] AS [customer_id], 
+    [customer_credit_card].[billing_address_id] AS [billing_address_id], 
+    [customer_credit_card].[cc_type] AS [cc_type], 
+    [customer_credit_card].[cc_number] AS [cc_number], 
+    [customer_credit_card].[cc_expiration] AS [cc_expiration], 
+    [customer_credit_card].[cvv_number] AS [cvv_number]
+    FROM [dbo].[customer_credit_card] AS [customer_credit_card]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="customers" EntityType="Self.customers" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [customers].[customer_id] AS [customer_id], 
+    [customers].[name] AS [name], 
+    [customers].[email] AS [email], 
+    [customers].[phone] AS [phone], 
+    [customers].[password] AS [password], 
+    [customers].[account_creation_date] AS [account_creation_date]
+    FROM [dbo].[customers] AS [customers]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="restaurant_branch" EntityType="Self.restaurant_branch" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [restaurant_branch].[restaurant_branch_id] AS [restaurant_branch_id], 
+    [restaurant_branch].[restaurant_name] AS [restaurant_name], 
+    [restaurant_branch].[street_address] AS [street_address], 
+    [restaurant_branch].[city] AS [city], 
+    [restaurant_branch].[state] AS [state], 
+    [restaurant_branch].[zip_code] AS [zip_code], 
+    [restaurant_branch].[latitude] AS [latitude], 
+    [restaurant_branch].[longitude] AS [longitude], 
+    [restaurant_branch].[phone1] AS [phone1], 
+    [restaurant_branch].[phone2] AS [phone2], 
+    [restaurant_branch].[branch_manager_name] AS [branch_manager_name], 
+    [restaurant_branch].[branch_manager_email] AS [branch_manager_email], 
+    [restaurant_branch].[password] AS [password], 
+    [restaurant_branch].[date_created] AS [date_created], 
+    [restaurant_branch].[public_visibility_status] AS [public_visibility_status], 
+    [restaurant_branch].[admin_approval_status] AS [admin_approval_status]
+    FROM [dbo].[restaurant_branch] AS [restaurant_branch]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="restaurant_menu_items" EntityType="Self.restaurant_menu_items" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [restaurant_menu_items].[menu_item_id] AS [menu_item_id], 
+    [restaurant_menu_items].[restaurant_branch_id] AS [restaurant_branch_id], 
+    [restaurant_menu_items].[menu_item_name] AS [menu_item_name], 
+    [restaurant_menu_items].[menu_item_description] AS [menu_item_description], 
+    [restaurant_menu_items].[menu_item_photo] AS [menu_item_photo], 
+    [restaurant_menu_items].[menu_item_price] AS [menu_item_price], 
+    [restaurant_menu_items].[admin_approval_status] AS [admin_approval_status]
+    FROM [dbo].[restaurant_menu_items] AS [restaurant_menu_items]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="restaurant_order_items" EntityType="Self.restaurant_order_items" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [restaurant_order_items].[order_item_id] AS [order_item_id], 
+    [restaurant_order_items].[order_id] AS [order_id], 
+    [restaurant_order_items].[menu_item_id] AS [menu_item_id], 
+    [restaurant_order_items].[menu_item_quantity] AS [menu_item_quantity], 
+    [restaurant_order_items].[menu_item_final_price] AS [menu_item_final_price]
+    FROM [dbo].[restaurant_order_items] AS [restaurant_order_items]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="restaurant_orders" EntityType="Self.restaurant_orders" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [restaurant_orders].[order_id] AS [order_id], 
+    [restaurant_orders].[customer_id] AS [customer_id], 
+    [restaurant_orders].[restaurant_branch_id] AS [restaurant_branch_id], 
+    [restaurant_orders].[order_date_time] AS [order_date_time], 
+    [restaurant_orders].[pickup_date_time] AS [pickup_date_time], 
+    [restaurant_orders].[order_status] AS [order_status], 
+    [restaurant_orders].[subtotal] AS [subtotal], 
+    [restaurant_orders].[tax] AS [tax], 
+    [restaurant_orders].[discount] AS [discount], 
+    [restaurant_orders].[total_charged] AS [total_charged]
+    FROM [dbo].[restaurant_orders] AS [restaurant_orders]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="system_administrator" EntityType="Self.system_administrator" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [system_administrator].[email] AS [email], 
+    [system_administrator].[name] AS [name], 
+    [system_administrator].[password] AS [password]
+    FROM [dbo].[system_administrator] AS [system_administrator]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+      <DefiningQuery>SELECT 
+    [database_firewall_rules].[id] AS [id], 
+    [database_firewall_rules].[name] AS [name], 
+    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+    [database_firewall_rules].[create_date] AS [create_date], 
+    [database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

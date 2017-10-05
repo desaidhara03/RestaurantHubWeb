@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+<!-- EMAIL SERVER -->
+  <mailFrom>resthubapp@gmail.com</mailFrom>
+  <mailHost>smtp.gmail.com</mailHost>
+  <mailPort>587</mailPort>
+  <mailUser>resthubapp@gmail.com</mailUser>
+  <mailPassword>pwd24get</mailPassword>
+<!-- DATABASE -->
+  <DBServer>tcp:restauranthub.database.windows.net,1433</DBServer>
+  <Database>RestaurantHub</Database>
+  <DBUserID>manager@restauranthub</DBUserID>
+  <DBPassword>CSC686/7</DBPassword>
+  <DBProvider></DBProvider>
+  <DBIntegratedSecurity></DBIntegratedSecurity>
+  <DBPersistSecurityInfo>False</DBPersistSecurityInfo>
+  <DBInitialCatalog></DBInitialCatalog>
+  <DBDataSource></DBDataSource>
+  <MaxPoolSize>200</MaxPoolSize>
+<!-- GOOGLE MAPS API -->
+  <GoogleMapsKey>AIzaSyB7CrAOsa_88gxPMC6ksN_Nmz-KFDz_3tE</GoogleMapsKey>
+  <initRangeLimitMiles>2</initRangeLimitMiles>
+  <maxDistMiles>10</maxDistMiles>
+<!-- AUTHORIZENET API -->
+  <!--<authorizeNetApiLoginID>3hpW5Ma6rQUs</authorizeNetApiLoginID>
+  <authorizeNetApiTransactionKey>6SJAt3YqV4bJ829K</authorizeNetApiTransactionKey>-->
+  <authorizeNetApiLoginID>2wm3XU3AN</authorizeNetApiLoginID>
+  <authorizeNetApiTransactionKey>43r2ukYr87BS7h7q</authorizeNetApiTransactionKey>
+</configuration>

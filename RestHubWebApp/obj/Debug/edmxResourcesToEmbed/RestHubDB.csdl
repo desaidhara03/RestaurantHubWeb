@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RestaurantHubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cc_encryption">
+    <Key>
+      <PropertyRef Name="credit_card_id" />
+      <PropertyRef Name="encryption_key" />
+    </Key>
+    <Property Name="credit_card_id" Type="Int32" Nullable="false" />
+    <Property Name="encryption_key" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customer_addresses">
+    <Key>
+      <PropertyRef Name="address_id" />
+      <PropertyRef Name="customer_id" />
+      <PropertyRef Name="street_address" />
+      <PropertyRef Name="city" />
+      <PropertyRef Name="state" />
+      <PropertyRef Name="zip_code" />
+    </Key>
+    <Property Name="address_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_id" Type="Int32" Nullable="false" />
+    <Property Name="street_address" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="city" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="state" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="zip_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customer_credit_card">
+    <Key>
+      <PropertyRef Name="credit_card_id" />
+      <PropertyRef Name="customer_id" />
+      <PropertyRef Name="billing_address_id" />
+      <PropertyRef Name="cc_type" />
+      <PropertyRef Name="cc_number" />
+      <PropertyRef Name="cc_expiration" />
+      <PropertyRef Name="cvv_number" />
+    </Key>
+    <Property Name="credit_card_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_id" Type="Int32" Nullable="false" />
+    <Property Name="billing_address_id" Type="Int32" Nullable="false" />
+    <Property Name="cc_type" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cc_number" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cc_expiration" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="cvv_number" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="email" />
+      <PropertyRef Name="password" />
+    </Key>
+    <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="account_creation_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="restaurant_branch">
+    <Key>
+      <PropertyRef Name="restaurant_branch_id" />
+      <PropertyRef Name="restaurant_name" />
+      <PropertyRef Name="street_address" />
+      <PropertyRef Name="city" />
+      <PropertyRef Name="state" />
+      <PropertyRef Name="zip_code" />
+      <PropertyRef Name="phone1" />
+      <PropertyRef Name="phone2" />
+      <PropertyRef Name="branch_manager_name" />
+      <PropertyRef Name="branch_manager_email" />
+      <PropertyRef Name="password" />
+      <PropertyRef Name="public_visibility_status" />
+      <PropertyRef Name="admin_approval_status" />
+    </Key>
+    <Property Name="restaurant_branch_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="restaurant_name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="street_address" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="city" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="state" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="zip_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="latitude" Type="Decimal" Precision="9" Scale="7" />
+    <Property Name="longitude" Type="Decimal" Precision="10" Scale="7" />
+    <Property Name="phone1" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phone2" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="branch_manager_name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="branch_manager_email" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="date_created" Type="DateTime" Precision="3" />
+    <Property Name="public_visibility_status" Type="Boolean" Nullable="false" />
+    <Property Name="admin_approval_status" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="restaurant_menu_items">
+    <Key>
+      <PropertyRef Name="menu_item_id" />
+      <PropertyRef Name="restaurant_branch_id" />
+      <PropertyRef Name="menu_item_name" />
+      <PropertyRef Name="menu_item_price" />
+      <PropertyRef Name="admin_approval_status" />
+    </Key>
+    <Property Name="menu_item_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="restaurant_branch_id" Type="Int32" Nullable="false" />
+    <Property Name="menu_item_name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="menu_item_description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="menu_item_photo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="menu_item_price" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="admin_approval_status" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="restaurant_order_items">
+    <Key>
+      <PropertyRef Name="order_item_id" />
+      <PropertyRef Name="order_id" />
+      <PropertyRef Name="menu_item_id" />
+      <PropertyRef Name="menu_item_quantity" />
+      <PropertyRef Name="menu_item_final_price" />
+    </Key>
+    <Property Name="order_item_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_id" Type="Int32" Nullable="false" />
+    <Property Name="menu_item_id" Type="Int32" Nullable="false" />
+    <Property Name="menu_item_quantity" Type="Int32" Nullable="false" />
+    <Property Name="menu_item_final_price" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="restaurant_orders">
+    <Key>
+      <PropertyRef Name="order_id" />
+      <PropertyRef Name="customer_id" />
+      <PropertyRef Name="restaurant_branch_id" />
+      <PropertyRef Name="order_date_time" />
+      <PropertyRef Name="pickup_date_time" />
+      <PropertyRef Name="order_status" />
+      <PropertyRef Name="subtotal" />
+      <PropertyRef Name="tax" />
+      <PropertyRef Name="discount" />
+      <PropertyRef Name="total_charged" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_id" Type="Int32" Nullable="false" />
+    <Property Name="restaurant_branch_id" Type="Int32" Nullable="false" />
+    <Property Name="order_date_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="pickup_date_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="order_status" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="subtotal" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="tax" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="discount" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="total_charged" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="system_administrator">
+    <Key>
+      <PropertyRef Name="email" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="password" />
+    </Key>
+    <Property Name="email" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="RestaurantHubEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cc_encryption" EntityType="Self.cc_encryption" />
+    <EntitySet Name="customer_addresses" EntityType="Self.customer_addresses" />
+    <EntitySet Name="customer_credit_card" EntityType="Self.customer_credit_card" />
+    <EntitySet Name="customers" EntityType="Self.customer" />
+    <EntitySet Name="restaurant_branch" EntityType="Self.restaurant_branch" />
+    <EntitySet Name="restaurant_menu_items" EntityType="Self.restaurant_menu_items" />
+    <EntitySet Name="restaurant_order_items" EntityType="Self.restaurant_order_items" />
+    <EntitySet Name="restaurant_orders" EntityType="Self.restaurant_orders" />
+    <EntitySet Name="system_administrator" EntityType="Self.system_administrator" />
+    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
+  </EntityContainer>
+</Schema>

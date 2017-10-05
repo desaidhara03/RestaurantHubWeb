@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="RestaurantHubEntities-Web.config Connection String" description="RestaurantHubEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/RestHubDB.csdl|res://*/RestHubDB.ssdl|res://*/RestHubDB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=restauranthub.database.windows.net;initial catalog=RestaurantHub;user id=manager;password=CSC686/7;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Dhara\\Documents\\CapstoneProject\\RestHubWebApp\\RestHubWebApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RestaurantHubEntities']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="DefaultConnection_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Dhara\\Documents\\CapstoneProject\\RestHubWebApp\\RestHubWebApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

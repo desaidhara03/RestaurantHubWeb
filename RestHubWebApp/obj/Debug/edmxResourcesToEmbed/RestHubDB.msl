@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RestaurantHubModelStoreContainer" CdmEntityContainer="RestaurantHubEntities">
+    <EntitySetMapping Name="cc_encryption">
+      <EntityTypeMapping TypeName="RestaurantHubModel.cc_encryption">
+        <MappingFragment StoreEntitySet="cc_encryption">
+          <ScalarProperty Name="credit_card_id" ColumnName="credit_card_id" />
+          <ScalarProperty Name="encryption_key" ColumnName="encryption_key" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer_addresses">
+      <EntityTypeMapping TypeName="RestaurantHubModel.customer_addresses">
+        <MappingFragment StoreEntitySet="customer_addresses">
+          <ScalarProperty Name="address_id" ColumnName="address_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="street_address" ColumnName="street_address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer_credit_card">
+      <EntityTypeMapping TypeName="RestaurantHubModel.customer_credit_card">
+        <MappingFragment StoreEntitySet="customer_credit_card">
+          <ScalarProperty Name="credit_card_id" ColumnName="credit_card_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="billing_address_id" ColumnName="billing_address_id" />
+          <ScalarProperty Name="cc_type" ColumnName="cc_type" />
+          <ScalarProperty Name="cc_number" ColumnName="cc_number" />
+          <ScalarProperty Name="cc_expiration" ColumnName="cc_expiration" />
+          <ScalarProperty Name="cvv_number" ColumnName="cvv_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="RestaurantHubModel.customer">
+        <MappingFragment StoreEntitySet="customers">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="account_creation_date" ColumnName="account_creation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="restaurant_branch">
+      <EntityTypeMapping TypeName="RestaurantHubModel.restaurant_branch">
+        <MappingFragment StoreEntitySet="restaurant_branch">
+          <ScalarProperty Name="restaurant_branch_id" ColumnName="restaurant_branch_id" />
+          <ScalarProperty Name="restaurant_name" ColumnName="restaurant_name" />
+          <ScalarProperty Name="street_address" ColumnName="street_address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="phone1" ColumnName="phone1" />
+          <ScalarProperty Name="phone2" ColumnName="phone2" />
+          <ScalarProperty Name="branch_manager_name" ColumnName="branch_manager_name" />
+          <ScalarProperty Name="branch_manager_email" ColumnName="branch_manager_email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+          <ScalarProperty Name="public_visibility_status" ColumnName="public_visibility_status" />
+          <ScalarProperty Name="admin_approval_status" ColumnName="admin_approval_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="restaurant_menu_items">
+      <EntityTypeMapping TypeName="RestaurantHubModel.restaurant_menu_items">
+        <MappingFragment StoreEntitySet="restaurant_menu_items">
+          <ScalarProperty Name="menu_item_id" ColumnName="menu_item_id" />
+          <ScalarProperty Name="restaurant_branch_id" ColumnName="restaurant_branch_id" />
+          <ScalarProperty Name="menu_item_name" ColumnName="menu_item_name" />
+          <ScalarProperty Name="menu_item_description" ColumnName="menu_item_description" />
+          <ScalarProperty Name="menu_item_photo" ColumnName="menu_item_photo" />
+          <ScalarProperty Name="menu_item_price" ColumnName="menu_item_price" />
+          <ScalarProperty Name="admin_approval_status" ColumnName="admin_approval_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="restaurant_order_items">
+      <EntityTypeMapping TypeName="RestaurantHubModel.restaurant_order_items">
+        <MappingFragment StoreEntitySet="restaurant_order_items">
+          <ScalarProperty Name="order_item_id" ColumnName="order_item_id" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="menu_item_id" ColumnName="menu_item_id" />
+          <ScalarProperty Name="menu_item_quantity" ColumnName="menu_item_quantity" />
+          <ScalarProperty Name="menu_item_final_price" ColumnName="menu_item_final_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="restaurant_orders">
+      <EntityTypeMapping TypeName="RestaurantHubModel.restaurant_orders">
+        <MappingFragment StoreEntitySet="restaurant_orders">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="restaurant_branch_id" ColumnName="restaurant_branch_id" />
+          <ScalarProperty Name="order_date_time" ColumnName="order_date_time" />
+          <ScalarProperty Name="pickup_date_time" ColumnName="pickup_date_time" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="total_charged" ColumnName="total_charged" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="system_administrator">
+      <EntityTypeMapping TypeName="RestaurantHubModel.system_administrator">
+        <MappingFragment StoreEntitySet="system_administrator">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="database_firewall_rules">
+      <EntityTypeMapping TypeName="RestaurantHubModel.database_firewall_rules">
+        <MappingFragment StoreEntitySet="database_firewall_rules">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+          <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

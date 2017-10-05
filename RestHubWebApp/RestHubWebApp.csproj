@@ -1,0 +1,806 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9912A558-A40C-48AC-80AA-0D80B9C57001}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RestHubWebApp</RootNamespace>
+    <AssemblyName>RestHubWebApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AuthorizeNet, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuthorizeNet.1.9.0\lib\AuthorizeNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.0.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.10.2\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\AddPhoneNumber.aspx" />
+    <Content Include="Account\Confirm.aspx" />
+    <Content Include="Account\CreditCard.aspx" />
+    <Content Include="Account\Forgot.aspx" />
+    <Content Include="Account\Lockout.aspx" />
+    <Content Include="Account\Login_NotUsed.aspx" />
+    <Content Include="Account\Manage.aspx" />
+    <Content Include="Account\ManageLogins.aspx" />
+    <Content Include="Account\ManagePassword.aspx" />
+    <Content Include="Account\OpenAuthProviders.ascx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="Account\ResetPassword.aspx" />
+    <Content Include="Account\ResetPasswordConfirmation.aspx" />
+    <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
+    <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="assets\css\dashboard.css" />
+    <Content Include="assets\css\jumbotron.css" />
+    <Content Include="assets\css\signin.css" />
+    <Content Include="assets\css\Site.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\js\bootstrap.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\custom.js" />
+    <Content Include="assets\js\ie10-viewport-bug-workaround.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\npm.js" />
+    <Content Include="configuration.xml" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Account\Web.config" />
+    <Content Include="Customers\account.aspx" />
+    <Content Include="Customers\account_address.aspx" />
+    <Content Include="Customers\account_cc.aspx" />
+    <Content Include="Customers\cart.aspx" />
+    <Content Include="Customers\find_restaurant.aspx" />
+    <Content Include="Customers\includes\footer.aspx" />
+    <Content Include="Customers\includes\html_includes.aspx" />
+    <Content Include="Customers\includes\top_navigation.aspx" />
+    <Content Include="Customers\index.aspx" />
+    <Content Include="Customers\login.aspx" />
+    <Content Include="Customers\logout.aspx" />
+    <Content Include="Customers\menu_item_details.aspx" />
+    <Content Include="Customers\order_confirmation.aspx" />
+    <Content Include="Customers\order_fail.aspx" />
+    <Content Include="Customers\order_process.aspx" />
+    <Content Include="Customers\order_success.aspx" />
+    <Content Include="Customers\recommendations.aspx" />
+    <Content Include="Customers\recover_password.aspx" />
+    <Content Include="Customers\restaurant_menu.aspx" />
+    <Content Include="images\bg.jpg" />
+    <Content Include="images\customers.jpg" />
+    <Content Include="images\loading-circle.gif" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\menu_items\20160806184354155-4492.jpg" />
+    <Content Include="images\menu_items\Akshitha123.jpg" />
+    <Content Include="images\menu_items\bangkok_halibut.jpg" />
+    <Content Include="images\menu_items\bangkok_rice.jpg" />
+    <Content Include="images\menu_items\bangkok_spring_roll.jpg" />
+    <Content Include="images\menu_items\bangkok_tom_kah_koong.jpg" />
+    <Content Include="images\menu_items\bangkok_veggie_salad.jpg" />
+    <Content Include="images\menu_items\giovannis_cannelloni.jpg" />
+    <Content Include="images\menu_items\giovannis_cheese_ravioli.jpg" />
+    <Content Include="images\menu_items\giovannis_fettucini.jpg" />
+    <Content Include="images\menu_items\giovannis_spaghetti_marinara.jpg" />
+    <Content Include="images\menu_items\giovannis_spinach_lasagna.jpg" />
+    <Content Include="images\menu_items\nophoto.png" />
+    <Content Include="images\menu_items\village_indian_alu_punjabi.jpg" />
+    <Content Include="images\menu_items\village_indian_beef_curry.jpg" />
+    <Content Include="images\menu_items\village_indian_chicken_tikka.jpg" />
+    <Content Include="images\menu_items\village_indian_fish_curry.jpg" />
+    <Content Include="images\menu_items\village_indian_lamb_vindalu.jpg" />
+    <Content Include="images\restaurants.jpg" />
+    <Content Include="images\restaurants\20160812212823115-3157.jpg" />
+    <Content Include="images\restaurants\Akshitha123.jpg" />
+    <Content Include="images\restaurants\nophoto.png" />
+    <Content Include="images\restaurants\tigris-mediterranean-gille.jpg" />
+    <Content Include="images\restaurants\village-indian-cuisine.jpg" />
+    <Content Include="images\sysadmin.jpg" />
+    <Content Include="includes\html_includes.aspx" />
+    <Content Include="Customers\locationPage.aspx" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\CustomerHub.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="index.aspx" />
+    <Content Include="NearByRestaurants_ToBeDeleted.aspx" />
+    <Content Include="RestaurantDetails_ToBeDeleted.aspx" />
+    <Content Include="Restaurants\account.aspx" />
+    <Content Include="Restaurants\includes\copyright.aspx" />
+    <Content Include="Restaurants\includes\html_includes.aspx" />
+    <Content Include="Restaurants\includes\top_navigation.aspx" />
+    <Content Include="Restaurants\index.aspx" />
+    <Content Include="Restaurants\login.aspx" />
+    <Content Include="Restaurants\logout.aspx" />
+    <Content Include="Restaurants\menu.aspx" />
+    <Content Include="Restaurants\menu_item.aspx" />
+    <Content Include="Restaurants\orders.aspx" />
+    <Content Include="Restaurants\order_details.aspx" />
+    <Content Include="Restaurants\recover_password.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\yqlgeo.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Default_ToBeDeleted.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Site.Master" />
+    <Content Include="SysAdmin\account.aspx" />
+    <Content Include="SysAdmin\dashboard.aspx" />
+    <Content Include="SysAdmin\includes\html_includes.aspx" />
+    <Content Include="SysAdmin\includes\top_navigation.aspx" />
+    <Content Include="SysAdmin\index.aspx" />
+    <Content Include="SysAdmin\login.aspx" />
+    <Content Include="SysAdmin\logout.aspx" />
+    <Content Include="SysAdmin\MenuItem.aspx" />
+    <Content Include="SysAdmin\restaurant.aspx" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Bundle.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Site.Mobile.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\AddPhoneNumber.aspx.cs">
+      <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\AddPhoneNumber.aspx.designer.cs">
+      <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Confirm.aspx.cs">
+      <DependentUpon>Confirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Confirm.aspx.designer.cs">
+      <DependentUpon>Confirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\CreditCard.aspx.cs">
+      <DependentUpon>CreditCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\CreditCard.aspx.designer.cs">
+      <DependentUpon>CreditCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Forgot.aspx.cs">
+      <DependentUpon>Forgot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Forgot.aspx.designer.cs">
+      <DependentUpon>Forgot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Lockout.aspx.cs">
+      <DependentUpon>Lockout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Lockout.aspx.designer.cs">
+      <DependentUpon>Lockout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login_NotUsed.aspx.cs">
+      <DependentUpon>Login_NotUsed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login_NotUsed.aspx.designer.cs">
+      <DependentUpon>Login_NotUsed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ManageLogins.aspx.cs">
+      <DependentUpon>ManageLogins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ManageLogins.aspx.designer.cs">
+      <DependentUpon>ManageLogins.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ManagePassword.aspx.cs">
+      <DependentUpon>ManagePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ManagePassword.aspx.designer.cs">
+      <DependentUpon>ManagePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\RegisterExternalLogin.aspx.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ResetPasswordConfirmation.aspx.cs">
+      <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
+      <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\TwoFactorAuthenticationSignIn.aspx.cs">
+      <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\TwoFactorAuthenticationSignIn.aspx.designer.cs">
+      <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\VerifyPhoneNumber.aspx.cs">
+      <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
+      <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AuthNetOutData.cs" />
+    <Compile Include="AuthorizeNet.cs" />
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\account.aspx.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\account.aspx.designer.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\account_address.aspx.cs">
+      <DependentUpon>account_address.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\account_address.aspx.designer.cs">
+      <DependentUpon>account_address.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\account_cc.aspx.cs">
+      <DependentUpon>account_cc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\account_cc.aspx.designer.cs">
+      <DependentUpon>account_cc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\cart.aspx.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\cart.aspx.designer.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\find_restaurant.aspx.cs">
+      <DependentUpon>find_restaurant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\find_restaurant.aspx.designer.cs">
+      <DependentUpon>find_restaurant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\menu_item_details.aspx.cs">
+      <DependentUpon>menu_item_details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\menu_item_details.aspx.designer.cs">
+      <DependentUpon>menu_item_details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\order_confirmation.aspx.cs">
+      <DependentUpon>order_confirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\order_confirmation.aspx.designer.cs">
+      <DependentUpon>order_confirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\order_fail.aspx.cs">
+      <DependentUpon>order_fail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\order_fail.aspx.designer.cs">
+      <DependentUpon>order_fail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\order_process.aspx.cs">
+      <DependentUpon>order_process.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\order_process.aspx.designer.cs">
+      <DependentUpon>order_process.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\order_success.aspx.cs">
+      <DependentUpon>order_success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\order_success.aspx.designer.cs">
+      <DependentUpon>order_success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\recommendations.aspx.cs">
+      <DependentUpon>recommendations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\recommendations.aspx.designer.cs">
+      <DependentUpon>recommendations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\recover_password.aspx.cs">
+      <DependentUpon>recover_password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\recover_password.aspx.designer.cs">
+      <DependentUpon>recover_password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\restaurant_menu.aspx.cs">
+      <DependentUpon>restaurant_menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\restaurant_menu.aspx.designer.cs">
+      <DependentUpon>restaurant_menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccess.cs" />
+    <Compile Include="Default_ToBeDeleted.aspx.cs">
+      <DependentUpon>Default_ToBeDeleted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default_ToBeDeleted.aspx.designer.cs">
+      <DependentUpon>Default_ToBeDeleted.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DistanceMatrix.cs" />
+    <Compile Include="GeoResponse.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Ini.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\locationPage.aspx.cs">
+      <DependentUpon>locationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\locationPage.aspx.designer.cs">
+      <DependentUpon>locationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="NearByRestaurants_ToBeDeleted.aspx.cs">
+      <DependentUpon>NearByRestaurants_ToBeDeleted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NearByRestaurants_ToBeDeleted.aspx.designer.cs">
+      <DependentUpon>NearByRestaurants_ToBeDeleted.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectTools.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestaurantDetails_ToBeDeleted.aspx.cs">
+      <DependentUpon>RestaurantDetails_ToBeDeleted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestaurantDetails_ToBeDeleted.aspx.designer.cs">
+      <DependentUpon>RestaurantDetails_ToBeDeleted.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurants\account.aspx.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurants\account.aspx.designer.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurants\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurants\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurants\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurants\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurants\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurants\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurants\menu.aspx.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurants\menu.aspx.designer.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurants\menu_item.aspx.cs">
+      <DependentUpon>menu_item.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurants\menu_item.aspx.designer.cs">
+      <DependentUpon>menu_item.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurants\orders.aspx.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurants\orders.aspx.designer.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurants\order_details.aspx.cs">
+      <DependentUpon>order_details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurants\order_details.aspx.designer.cs">
+      <DependentUpon>order_details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurants\recover_password.aspx.cs">
+      <DependentUpon>recover_password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurants\recover_password.aspx.designer.cs">
+      <DependentUpon>recover_password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="SysAdmin\account.aspx.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysAdmin\account.aspx.designer.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdmin\dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysAdmin\dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdmin\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysAdmin\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdmin\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysAdmin\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdmin\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysAdmin\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdmin\MenuItem.aspx.cs">
+      <DependentUpon>MenuItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysAdmin\MenuItem.aspx.designer.cs">
+      <DependentUpon>MenuItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdmin\restaurant.aspx.cs">
+      <DependentUpon>restaurant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SysAdmin\restaurant.aspx.designer.cs">
+      <DependentUpon>restaurant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RestHubService\RestHubService.csproj">
+      <Project>{31cd948e-3eb0-4288-8880-d7870548d44f}</Project>
+      <Name>RestHubService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59999</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5770/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

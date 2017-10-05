@@ -1,0 +1,70 @@
+﻿body {
+}
+#feedbackDiv{
+    padding:15px 0;
+    font-size:14px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    line-height:22px;
+    color:red;
+}
+.menuItem{
+    cursor:pointer;
+    border-bottom:solid 1px gray;
+    padding-bottom:10px;
+}
+.menuItem img{
+    max-height:60px;
+}
+
+/* restaurant order queue tables */
+#tblNew{
+    background-color:khaki;
+    width:100%;
+}
+#tblPreparing{
+    background-color:antiquewhite;
+    width:100%;
+}
+#tblReady{
+    background-color:whitesmoke;
+    color:dimgray;
+    width:100%;
+}
+#tblDelivered{
+    background-color:aliceblue;
+    color:lightblue;
+    width:100%;
+}
+/* all pages: header */
+.navbar{
+    min-height:85px;
+}
+#navbar{ /* mobile menu open position */
+    margin-top:30px;
+}
+.navbar-nav>li>a{ /* top menu: all */
+    font-size:20px;
+    margin-top:15px;
+}
+.main .page-header{ /* Main page header */
+    margin-top:20px;
+}
+
+.navbar-toggle .icon-bar{ /* shape of mobile's top menu icon */
+    width:30px;
+    height:4px;
+}
+.navbar-toggle{ /* position of mobile's top menu icon */
+    margin-top:20px;
+}
+/* logo */
+.navbar-brand{
+    padding-top:5px;
+}
+.navbar-brand img{
+    max-height:75px;
+}
+/* TABLES */
+.table-hover tbody{
+	cursor:pointer;
+}
